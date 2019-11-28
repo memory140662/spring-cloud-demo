@@ -2,7 +2,6 @@ package com.demo;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,14 +20,11 @@ public class ModuleTwoController {
 
     private RestTemplate restTemplate;
 
-    private LoadBalancerClient client;
-
     @Value("#{environment['MODULE_URL']}")
     private String baseUrl;
 
-    public ModuleTwoController(RestTemplate restTemplate, LoadBalancerClient client) {
+    public ModuleTwoController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
-        this.client = client;
     }
 
     @GetMapping
@@ -67,11 +63,5 @@ public class ModuleTwoController {
 
     public ModuleTwo getOneFallbackMethod(String name) {
         return new ModuleTwo();
-    }
-
-    @GetMapping("ribbon")
-    public String ribbon(){
-        ServiceInstance serviceInstance = client.choose("module-1");
-        return serviceInstance.getUri().toString();
     }
 }

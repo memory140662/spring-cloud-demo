@@ -14,3 +14,9 @@ eureka:
       enabled: true
     serviceUrl:
       defaultZone: http://replica1:8761/eureka/,http://replica2:8762/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream,health,info
+      base-path: /
