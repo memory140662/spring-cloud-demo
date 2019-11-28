@@ -1,0 +1,17 @@
+server:
+  port: 8844
+
+spring:
+  application:
+    name: hystrix-dashboard
+
+eureka:
+  instance:
+    metadata-map:
+      management.port: ${management.port}
+
+turbine:
+  aggregator:
+    clusterConfig: default
+  appConfig: module-1, module-2
+  clusterNameExpression: "'default'"

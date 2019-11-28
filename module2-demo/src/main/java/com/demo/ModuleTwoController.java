@@ -20,9 +20,6 @@ public class ModuleTwoController {
 
     private RestTemplate restTemplate;
 
-    @Value("#{environment['MODULE_URL']}")
-    private String baseUrl;
-
     public ModuleTwoController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
@@ -31,7 +28,7 @@ public class ModuleTwoController {
     @HystrixCommand(fallbackMethod = "getAllFallbackMethod")
     public List<ModuleTwo> getAll() {
         try {
-            ModuleTwo[] forObject = restTemplate.getForObject(baseUrl, ModuleTwo[].class);
+            ModuleTwo[] forObject = restTemplate.getForObject("http://module-1/module-one", ModuleTwo[].class);
             if (forObject == null) {
                 return null;
             }
