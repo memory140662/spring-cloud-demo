@@ -1,0 +1,13 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: eureka-server
+eureka:
+  instance:
+    hostname: replica1
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://replica2:8762/eureka/

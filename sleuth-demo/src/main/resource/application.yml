@@ -1,13 +1,10 @@
 server:
-  port: 8898
+  port: 8866
 spring:
   application:
-    name: module-2
-  zipkin:
-    base-url: http://localhost:8866/
-  sleuth:
-    sampler:
-      probability: 1.0
+    name: sleuth
+  main:
+    allow-bean-definition-overriding: true
 eureka:
   client:
     healthcheck:

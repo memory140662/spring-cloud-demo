@@ -8,6 +8,7 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.cloud.netflix.ribbon.RibbonClientConfiguration;
 import org.springframework.cloud.netflix.ribbon.RibbonClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
@@ -15,11 +16,11 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableHystrix
-
 @RibbonClients(
         value = {
                 @RibbonClient(name = "module-1"),
-        }
+        },
+        defaultConfiguration = RibbonClientConfiguration.class
 )
 public class ModuleTwoApplication {
     public static void main(String[] args) {

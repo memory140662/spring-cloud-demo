@@ -13,6 +13,7 @@
     <module>eureka-server-demo</module>
     <module>module1-demo</module>
     <module>module2-demo</module>
+    <module>sleuth-demo</module>
   </modules>
 
   <name>spring-cloud-demo</name>
@@ -35,7 +36,12 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
   </dependencies>
+
 
   <dependencyManagement>
     <dependencies>
@@ -52,6 +58,22 @@
         <version>${spring.boot.version}</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.zipkin.java</groupId>
+        <artifactId>zipkin-server</artifactId>
+        <version>2.10.1</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>io.zipkin.java</groupId>
+        <artifactId>zipkin-autoconfigure-ui</artifactId>
+        <version>2.10.1</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,7 +20,8 @@ public class ModuleOneController {
     );
 
     @GetMapping
-    public List<ModuleOne> getAll() {
+    public List<ModuleOne> getAll(HttpServletRequest request) {
+        System.out.println("************* module one port: " + request.getLocalPort());
         return list;
     }
 

@@ -1,9 +1,16 @@
+server:
+  port: 8899
 spring:
   application:
     name: module-1
+  zipkin:
+    base-url: http://localhost:8866/
+  sleuth:
+    sampler:
+      probability: 1.0
 eureka:
   client:
+    healthcheck:
+      enabled: true
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-server:
-  port: 8899
+      defaultZone: http://replica1:8761/eureka/,http://replica2:8762/eureka/
