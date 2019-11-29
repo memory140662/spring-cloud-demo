@@ -1,0 +1,23 @@
+server:
+  port: 8895
+spring:
+  application:
+    name: module-1
+  zipkin:
+    base-url: http://localhost:8866/
+  sleuth:
+    sampler:
+      probability: 1.0
+  profiles:
+    active: copy
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://replica1:8761/eureka/,http://replica2:8762/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream,health,info

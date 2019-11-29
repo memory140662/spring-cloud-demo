@@ -11,9 +11,9 @@
 
   <modules>
     <module>eureka-server-demo</module>
+    <module>sleuth-demo</module>
     <module>module1-demo</module>
     <module>module2-demo</module>
-    <module>sleuth-demo</module>
     <module>hystrix-dashboard-demo</module>
   </modules>
 

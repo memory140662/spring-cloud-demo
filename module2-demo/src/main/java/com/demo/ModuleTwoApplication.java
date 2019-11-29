@@ -27,7 +27,6 @@ import org.springframework.web.client.RestTemplate;
         },
         defaultConfiguration = RibbonClientConfiguration.class
 )
-@RefreshScope
 @RestController
 @EnableCircuitBreaker
 public class ModuleTwoApplication {

@@ -11,9 +11,15 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping("/module-one")
-@Profile({})
-public class ModuleOneController {
+@RequestMapping("/module-one-copy")
+@Profile("copy")
+public class ModuleOneCopyController {
+
+    private ModuleOneController moduleOneController;
+
+    public ModuleOneCopyController(ModuleOneController moduleOneController) {
+        this.moduleOneController = moduleOneController;
+    }
 
     private List<ModuleOne> list = Arrays.asList(
             new ModuleOne("name1", "d1"),
@@ -23,17 +29,8 @@ public class ModuleOneController {
 
     @GetMapping
     public List<ModuleOne> getAll(HttpServletRequest request) {
-        System.out.println("************* module one port: " + request.getLocalPort());
-        return list;
+        return moduleOneController.getAll(request);
     }
 
-
-    @GetMapping("/{name}")
-    public ModuleOne getOne(@PathVariable String name) {
-        return list.stream()
-                .filter(moduleOne -> moduleOne.getName().equals(name))
-                .findFirst()
-                .orElse(new ModuleOne());
-    }
 
 }
