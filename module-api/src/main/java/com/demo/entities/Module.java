@@ -1,13 +1,13 @@
-package com.demo;
+package com.demo.entities;
 
-public class ModuleOne {
+public class Module {
     private String name;
     private String description;
 
-    public ModuleOne() {
+    public Module() {
     }
 
-    public ModuleOne(String name, String description) {
+    public Module(String name, String description) {
         this.name = name;
         this.description = description;
     }

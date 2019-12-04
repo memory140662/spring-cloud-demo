@@ -9,9 +9,8 @@ eureka:
   instance:
     metadata-map:
       management.port: ${management.port}
-
 turbine:
   aggregator:
     clusterConfig: default
-  appConfig: module-1, module-2
+  appConfig: module-consumer
   clusterNameExpression: "'default'"

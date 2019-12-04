@@ -1,5 +1,5 @@
 server:
-  port: 8898
+  port: 8892
 spring:
   application:
     name: module-2

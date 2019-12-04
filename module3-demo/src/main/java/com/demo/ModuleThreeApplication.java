@@ -10,9 +10,10 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 @EnableDiscoveryClient
 @EnableHystrix
 @EnableCircuitBreaker
-public class ModuleTwoApplication {
+public class ModuleThreeApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ModuleTwoApplication.class, args);
+        SpringApplication.run(ModuleThreeApplication.class, args);
     }
+
 
 }
