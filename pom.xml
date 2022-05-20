@@ -24,7 +24,7 @@
   <properties>
     <spring.boot.version>2.1.10.RELEASE</spring.boot.version>
     <spring.cloud.netflix.version>Greenwich.SR2</spring.cloud.netflix.version>
-    <gson.version>2.8.6</gson.version>
+    <gson.version>2.8.9</gson.version>
   </properties>
 
   <dependencies>
